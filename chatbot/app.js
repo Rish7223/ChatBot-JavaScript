@@ -50,7 +50,7 @@ function todayQuiz(value)
         else if(value.includes("temp"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>It's 60<sup>o</sup>C<p>";
+            answerbox.innerHTML += "<p>It's 85.7<sup>o</sup>F<p>";
         }
         else {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
