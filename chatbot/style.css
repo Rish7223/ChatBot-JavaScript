@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: azure;
+    height: 100vh;
+    font-family: 'raleway';
+}
+
+.container {
+    padding: 20px;
+    width: 500px;
+    background-color: rgb(183, 231, 248);
+    margin: 10% auto;
+    border-radius: 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: 600;
+}
+form input {
+    background: transparent;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #999;
+}
+
+form input:focus {
+    background: transparent;
+    outline: none;
+    border: 2px solid #777;
+}
+
+form button {
+    padding: 5px 10px;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(4, 76, 102);
+    border-radius: 5px;
+    border: 2px solid rgb(4, 76, 102);
+    outline: none;
+}
+
+form button:hover {
+    opacity: 0.8;
+}
+
+#answer {
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#answer p {
+    margin-bottom: 20px; 
+    text-align: right;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+#answer .quiz {
+    text-align: left;
+    margin-top: 20px; 
+    font-weight: 600;
+    font-size: 13px;
+}
