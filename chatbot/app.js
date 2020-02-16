@@ -18,7 +18,19 @@ recognition.onstart = function(){
 recognition.onresult = function(e){
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
+    console.log(transcript);
     question(transcript.toLowerCase());
+}
+
+// function to read the massage
+function readOut(massage)
+{
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = massage;
+    speech.volume = 1;
+    speech.pitch = 1;
+    speech.rate = 0.7;
+    window.speechSynthesis.speak(speech);
 }
 
 // adding eventlistner to typing
@@ -39,22 +51,30 @@ function todayQuiz(value)
 {
     if(value.includes("time"))
     {
-        answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';    
-        answerbox.innerHTML += "<p>Right now it's 11:34pm ! Sleep Well<p>";
+        answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
+        var ans = "Right now it's 11:34pm ! Sleep Well";   
+        answerbox.innerHTML += "<p>"+ ans +"<p>";
+        readOut(ans);
         }
         else if(value.includes("date"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>15 FEB 2020<p>"; 
+            const ans = "15 FEB 2020";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans); 
         }
         else if(value.includes("temp"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>It's 85.7<sup>o</sup>F<p>";
+            const ans = "It's 22.5 degree celsius";
+            answerbox.innerHTML += "<p>It's 22.5<sup>o</sup>C<p>";
+            readOut(ans);
         }
         else {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>It's clear outside<p>";
+            const ans = "It's clear outside";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans);
     }
 }
 
@@ -67,7 +87,9 @@ function question(quiz)
             if(e === "hello" || e === "hey" || e == "namaste")
             {
                 answerbox.innerHTML += '<p class="quiz">'+ quiz + '<p>';
-                answerbox.innerHTML += '<p>'+ e +' Rishabh! what is your query?<p>';
+                var ans = "Hello Rishabh! what is your query?"
+                answerbox.innerHTML += '<p>'+ans+'<p>';
+                readOut(ans);
             }
         } 
     })
@@ -93,22 +115,30 @@ function myself(value)
         if(value.includes("my name"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>Your name is Rishabh Tyagi<p>"; 
+            const ans = "Your name is Rishabh Tyagi!"
+            answerbox.innerHTML += "<p>"+ans+"<p>"; 
+            readOut(ans);
         }
 
         else if(value.includes("university"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>Chandigarh University<p>"; 
+            const ans = "Chandigarh University";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans); 
         }
         else if(value.includes("course"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>Bechlour of Computer Application(BCA)<p>"; 
+            const ans = "Bachelor of Computer Application"
+            answerbox.innerHTML += "<p>Bachelor of Computer Application(BCA)<p>";
+            readOut(ans); 
         }
         else{
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>sorry! i didn't get that query<p>"; 
+            const ans = "sorry! i didn't get that query";
+            answerbox.innerHTML += "<p>"+ans+"<p>"; 
+            readOut(ans);
         }
     }
     else if(value.includes("your"))
@@ -116,23 +146,29 @@ function myself(value)
         if(value.includes("name"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>My name is Jarvis & i am your friend<p>";
+            const ans = "My name is Jarvis & i am your friend";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans);
         }
         else if(value.includes("creator"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>I am designed by Rishabh Tyagi<p>";
+            const ans = "I am designed by Rishabh Tyagi";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans);
         }
         else if(value.includes("version"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>This is Jarvis 0.1<p>";
+            const ans = "This is Jarvis 0.1";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans);
         }
         else{
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            answerbox.innerHTML += "<p>sorry! i didn't get that query<p>";
+            const ans = "Sorry! i didn't get that query";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
+            readOut(ans);
         }
     }
 }
-
-
