@@ -18,7 +18,6 @@ recognition.onstart = function(){
 recognition.onresult = function(e){
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    console.log(transcript);
     question(transcript.toLowerCase());
 }
 
