@@ -15,8 +15,8 @@ body {
 .container {
     padding: 20px;
     width: 500px;
-    background-color: rgb(183, 231, 248);
-    margin: 10% auto;
+    background-color: rgb(12, 12, 12);
+    margin: 5% auto;
     border-radius: 7px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -27,29 +27,31 @@ form {
 
 form label {
     font-weight: 600;
+    color: white;
 }
 form input {
     background: transparent;
-    color: black;
+    color: rgb(252, 250, 250);
     padding: 5px;
     border-radius: 5px;
-    border: 2px solid #999;
+    border: 2px solid rgb(252, 252, 252);
 }
 
 form input:focus {
-    background: transparent;
+    background: black;
     outline: none;
-    border: 2px solid #777;
+    border: 2px solid rgb(255, 253, 253);
 }
 
 form button {
     padding: 5px 10px;
     font-size: 15px;
     color: white;
-    background-color: rgb(4, 76, 102);
+    background-color: rgb(228, 243, 248);
     border-radius: 5px;
-    border: 2px solid rgb(4, 76, 102);
+    border: 2px solid rgb(228, 243, 248);
     outline: none;
+    color: black;
 }
 
 form button:hover {
