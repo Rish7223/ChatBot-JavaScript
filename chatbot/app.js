@@ -6,6 +6,25 @@ const welcome = ["hello", "hey", "namaste"];
 const today = ["time", "date", "temperature", "weather"];
 const self = ["my", "your"];
 
+// date and time
+var Aaj = new Date();
+var date = Aaj.getDate()+' '+monthStr((Aaj.getMonth()+1))+' '+Aaj.getFullYear();
+var time = Aaj.getHours() +':'+ Aaj.getMinutes();
+
+// function to print month
+
+function monthStr(e){
+    var month = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    for(let i=0; i<=month.length;i++)
+    {
+        if(i == e){
+            var str = month[i-1];
+            break;
+        }
+    }
+    return str;
+}
+
 
 // speech recognistion
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -29,7 +48,7 @@ function readOut(massage)
     speech.text = massage;
     speech.volume = 1;
     speech.pitch = 1;
-    speech.rate = 0.7;
+    speech.rate = 0.9;
     window.speechSynthesis.speak(speech);
 }
 
@@ -52,22 +71,22 @@ function todayQuiz(value)
     if(value.includes("time"))
     {
         answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-        var ans = "Right now it's 11:34pm ! Sleep Well";   
+        var ans = "Right now it's "+time;   
         answerbox.innerHTML += "<p>"+ ans +"<p>";
         readOut(ans);
         }
         else if(value.includes("date"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "15 FEB 2020";
+            const ans = date;
             answerbox.innerHTML += "<p>"+ans+"<p>";
             readOut(ans); 
         }
         else if(value.includes("temp"))
         {
             answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "It's 22.5 degree celsius";
-            answerbox.innerHTML += "<p>It's 22.5<sup>o</sup>C<p>";
+            const ans = "We are working on It";
+            answerbox.innerHTML += "<p>"+ans+"<p>";
             readOut(ans);
         }
         else {
@@ -87,7 +106,7 @@ function question(quiz)
             if(e === "hello" || e === "hey" || e == "namaste")
             {
                 answerbox.innerHTML += '<p class="quiz">'+ quiz + '<p>';
-                var ans = "Hello Rishabh! what is your query?"
+                var ans = "Hello! what is your query?"
                 answerbox.innerHTML += '<p>'+ans+'<p>';
                 readOut(ans);
             }
@@ -110,38 +129,7 @@ function question(quiz)
 // my self function
 function myself(value)
 {
-    if(value.includes("my"))
-    {
-        if(value.includes("my name"))
-        {
-            answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "Your name is Rishabh Tyagi!"
-            answerbox.innerHTML += "<p>"+ans+"<p>"; 
-            readOut(ans);
-        }
-
-        else if(value.includes("university"))
-        {
-            answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "Chandigarh University";
-            answerbox.innerHTML += "<p>"+ans+"<p>";
-            readOut(ans); 
-        }
-        else if(value.includes("course"))
-        {
-            answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "Bachelor of Computer Application"
-            answerbox.innerHTML += "<p>Bachelor of Computer Application(BCA)<p>";
-            readOut(ans); 
-        }
-        else{
-            answerbox.innerHTML += '<p class="quiz">'+ value + '<p>';
-            const ans = "sorry! i didn't get that query";
-            answerbox.innerHTML += "<p>"+ans+"<p>"; 
-            readOut(ans);
-        }
-    }
-    else if(value.includes("your"))
+    if(value.includes("your"))
     {
         if(value.includes("name"))
         {
